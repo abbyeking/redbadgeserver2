@@ -14,7 +14,7 @@ module.exports = db.define('podcast', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    genre: {
+    publisher: {
         type: DataTypes.STRING,
         allowNull: false
     },

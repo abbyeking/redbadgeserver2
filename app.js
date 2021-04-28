@@ -3,17 +3,18 @@ const Express = require('express')
 const app = Express()
 const db = require('./db')
 
-// app.use(Express.json())
-
-app.use(require("./middleware/headers"))
+app.use(Express.json())
+const headers = require("./middleware/headers")
+console.log(headers)
+app.use(headers)
 const controllers = require('./controllers/index')
 
-app.use(Express.json())
+// app.use(Express.json())
 
 // controllers
 app.use('/user', controllers.User)
 
-app.use(require("./middleware/validate-jwt")) /
+app.use(require("./middleware/validate-jwt")) 
 app.use('/podcast', controllers.Podcast)
 app.use('/notes', controllers.Notes)
 

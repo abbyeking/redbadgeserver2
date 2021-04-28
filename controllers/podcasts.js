@@ -11,7 +11,7 @@ router.post('/create', async (req, res) => {
         name: req.body.name,
         images: req.body.images,
         description: req.body.description,
-        genre: req.body.genre,
+        publisher: req.body.publisher,
         userId: req.user.id
       })
       res.status(200).json({ message: 'Podcast created successfully.', result })
