@@ -1,6 +1,7 @@
 require('dotenv').config()
 const Express = require('express')
 const app = Express()
+const cors = require('cors')
 const db = require('./db')
 
 app.use(Express.json())
@@ -14,6 +15,7 @@ const controllers = require('./controllers/index')
 // controllers
 app.use('/user', controllers.User)
 
+app.use(cors())
 app.use(require("./middleware/validate-jwt")) 
 app.use('/podcast', controllers.Podcast)
 app.use('/notes', controllers.Notes)
