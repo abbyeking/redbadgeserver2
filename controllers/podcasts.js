@@ -23,11 +23,11 @@ router.post('/create', async (req, res) => {
 /**********************
   * GET ALL BY USER *
 ***********************/
-router.get('/user/:uid', async (req, res) => {
+router.get('/my', async (req, res) => {
     const { uid } = req.params
     try {
         const user = await User.findOne({ 
-            where: { id: uid },
+            where: { id: req.user.id },
             include: Podcast
         })
         if (user === null) {
@@ -49,7 +49,7 @@ router.put('/:id', async (req, res) => {
     const { id } = req.params
     try {
       const update = {
-        genre: req.body.genre
+        publisher: req.body.publisher
       }
       const result = await Podcast.update(update, { where: { id: id } })
       if (result[0] === 0) {
