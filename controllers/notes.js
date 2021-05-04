@@ -40,12 +40,12 @@ router.get('/podcast/:pid', async (req, res) => {
 
 // GET NOTES BY USER
 
-router.get('/user/:uid', async (req, res) => {
-  const { uid } = req.params
+router.get('/user', async (req, res) => {
+//   const { uid } = req.params
   try {
       const user = await User.findOne({ 
-          where: { id: uid },
-          include: Notes
+          where: { id: req.user.id },
+          include: [{model: Notes, include: Podcast}]
       })
       if (user === null) {
           res.status(404).json({ message: 'User not found.' })
