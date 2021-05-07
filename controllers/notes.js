@@ -62,7 +62,7 @@ router.get('/user', async (req, res) => {
 // UPDATE
 
 router.put('/:id', async (req, res) => {
-  const { notes } = req.body.note
+//   const { notes } = req.body.note
   const { id } = req.params
 //   const update = { note: notes }
 
