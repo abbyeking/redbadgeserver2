@@ -10,9 +10,6 @@ console.log(headers)
 app.use(headers)
 const controllers = require('./controllers/index')
 
-// app.use(Express.json())
-
-// controllers
 app.use('/user', controllers.User)
 
 app.use(cors())

@@ -41,7 +41,6 @@ router.get('/podcast/:pid', async (req, res) => {
 // GET NOTES BY USER
 
 router.get('/user', async (req, res) => {
-//   const { uid } = req.params
   try {
       const user = await User.findOne({ 
           where: { id: req.user.id },
@@ -62,9 +61,7 @@ router.get('/user', async (req, res) => {
 // UPDATE
 
 router.put('/:id', async (req, res) => {
-//   const { notes } = req.body.note
   const { id } = req.params
-//   const update = { note: notes }
 
   try {
     const result = await Notes.update(req.body, { where: { id: id } })
